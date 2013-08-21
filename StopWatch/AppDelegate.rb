@@ -21,7 +21,8 @@ class AppDelegate
             timerStart(@time)
             pushButtonStart.title = "pause"
             elsif pushButtonStart.title == "pause"
-            stopTimer(true)
+            @timer.invalidate
+            @timer = nil
             pushButtonStart.title = "start"
             else
             @time = textField.stringValue.to_f
@@ -36,6 +37,9 @@ class AppDelegate
             @timer.invalidate
             @timer = nil
         end
+        pushButtonStart.title = "start"
+        textField.stringValue = ""
+
     end
     
     def timerStart(time)
